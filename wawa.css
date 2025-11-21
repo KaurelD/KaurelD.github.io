@@ -1,77 +1,597 @@
-nav{
-        background: #695D47;
-        padding: 1rem;
-        position: relative;
-        width: 100%
-}
-
-nav ul{
-        max-width: 1250px;
-        list-style-type: none;
+*{
         margin: 0;
-        padding: 0px 1250px;
-        display: flex;
-        gap: 20px;
-        justify-content: flex-end;
-}
-
-nav ul li{
-        display: inline;
-}
-
-nav ul li a{
-        color: white;
+        padding: 0;
+        box-sizing: border-box;
         text-decoration: none;
-        padding: 0.5rem 1rem;
-        display: block;
+        border: none;
+        outline: none;
+        font-family: "'Abril Fatface', Consolas, 'Courier New', monospace"; 
 }
 
-nav ul li a:hover{
-        background-color: #5b4319;
-        border-radius: 5px;
-}
-
-.header-content{
-        display: flex;
-        justify-content: space-between;
-        top: 100px;
-        align-items: center;
+html{
         width: 100%;
-        overflow: hidden;
-        position: relative;
-}
-
-.left-section{
-        flex: 1;
-        text-align: center;
-}
-
-.center-section{
-        flex: 1;
-        text-align: center;
-}
-
-h1{
-        font-size: 40px;
+        min-height: 100%;
+        overflow-x: hidden;   
+        overflow-y: auto;   
         margin: 0;
-}
-h2{
-        font-size: 100px;
-        margin: 0; 
-}
-h3{
-        font-size: 40px;
-        margin: 0; 
+        padding: 0;
 }
 
 body{
-        font-family: "'Abril Fatface', Consolas, 'Courier New', monospace"; 
-        margin: 0;
-        padding: 0;
-        background-image: url(front.png);
+        background-image: url('front.png');
         background-size: cover;
+        background-attachment: fixed;
         background-repeat: no-repeat;
         background-position: center;
-        background-attachment: fixed;
-        overflow: hidden;
+        overflow-y: hidden;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media (max-width: 768px){
+    .home{
+        padding-left: 10%;
+        padding-top: 50%;
+        font-size: 28px;
+    }
+
+    .home-content h1{
+        font-size: 60px;
+    }
+
+    .home-content h2{
+        font-size: 24px;
+    }
+
+    .home-content h4{
+        font-size: 20px;
+    }
+
+    .skill-container{
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px){
+    .home{
+        padding-left: 5%;
+        padding-top: 45%;
+        font-size: 22px;
+    }
+
+    .home-content h1{
+        font-size: 45px;
+    }
+
+    .home-content h2{
+        font-size: 20px;
+    }
+
+    .social-icons a{
+        transform: scale(0.8);
+    }
+
+    .skill-container{
+        gap: 20px;
+    }
+}
+
+/* ===================== HEADER ===================== */
+
+header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        background-color: #695D47;
+        filter: drop-shadow(10px);
+        z-index: 100;
+}
+
+.header-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 1%;
+}
+
+.logo{
+        font-size: 25px;
+        color: black;
+        font-weight: 800;
+        cursor: pointer;
+        z-index: 101;
+}
+
+.logo:hover{
+        transform: scale(1.15);
+        color: #5B3820;
+}
+
+nav {
+        padding: 0;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+}
+
+nav ul{
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+}
+
+nav li{
+        display: inline-block;
+}
+
+nav a{
+        font-size: 20px;
+        color: black;
+        font-weight: 500;
+        transition: 0.2s ease;
+        padding: 8px 16px;
+        display: inline-block;
+}
+
+nav a:hover, nav a.active{
+        border-radius: 8px;
+        background-color: #5B3820;
+        color: white;
+        transform: scale(1.15);
+}
+
+/* ===================== SECTION ===================== */
+
+section{
+        min-height: calc(100vh - 100px);
+        padding-top: 100px;
+        width: 100%;
+}
+
+/* ===================== HOME ===================== */
+
+.home{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: calc(100vh - 100px);
+        padding-top: 100px;
+        padding-left: 27%;
+        position: relative;
+        font-size: 40px;
+}
+
+.home-content{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 10;
+}
+
+.home-content h1{
+        font-size: 90px;
+        margin: 10px;
+        text-align: center;
+}
+
+.home-content h2{
+        font-size: 30px;
+        text-align: center;
+}
+
+.home-content h4 {
+        font-size: 25px;
+        margin: 20px 0;
+        text-align: center;
+}
+
+.home-content p {
+        margin: 10px 0;
+        font-size: 20px;
+        text-align: center;
+}
+
+.typewriter-text{
+        font-weight: 600;
+        font-size: 25px;
+        color: #5B3820;
+        margin-top: -10px;
+}
+
+/* ===================== SOCIAL ICONS ===================== */
+
+.social-icons a{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        margin: -0.2rem 1.5rem -0.2rem;
+        transition: 0.3s ease;
+}
+
+.social-icons a.instagram{
+        background-image: url('insta.png');
+        background-size: cover;
+        background-position: center;
+        width: 3rem;
+        height: 3rem;
+}
+
+.social-icons a.instagram:hover{
+        transform: scale(1.3);
+}
+
+.social-icons a.whatsapp{
+        background-image: url('whatsapp.png');
+        background-size: cover;
+        background-position: center;
+        width: 3.3rem;
+        height: 3.3rem;
+}
+
+.social-icons a.whatsapp:hover{
+        transform: scale(1.3);
+}
+
+.social-icons a.github{
+        background-image: url('github.png');
+        background-size: cover;
+        background-position: center;
+        width: 3.4rem;
+        height: 3.4rem;
+}
+
+.social-icons a.github:hover{
+        transform: scale(1.3);
+}
+
+.social-icons a.youtube{
+        background-image: url('youtube.png');
+        background-size: cover;
+        background-position: center;
+        width: 3.2rem;
+        height: 3.2rem;
+}
+
+.social-icons a.youtube:hover{
+        transform: scale(1.3);
+}
+
+/* ===================== SERVICES SECTION ===================== */
+
+.services {
+    padding: 10px 0;
+    padding-top: 150px;
+    text-align: center;
+    background: #fafafa;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.service-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.service-box {
+    width: 300px;
+    padding: 25px;
+    background-color: #695D47;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    background-color: #5B3820;
+    color: #ffffff;
+}
+
+.service-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+/* ===================== SKILLS SECTION ===================== */
+
+.skills {
+    text-align: center;
+}
+
+.skills h2{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.skill-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill{
+    width: 100%;
+    margin: 30px auto;
+    text-align: left;
+}
+
+.skill span {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5B3820;
+    text-align: left;
+}
+
+.bar {
+    width: 100%;
+    height: 15px;
+    background: #695D47;
+    border-radius: 20px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.bar div {
+    height: 100%;
+    background: #5B3820;
+    border-radius: 20px;
+}
+
+/* ===================== EDUCATION SECTION ===================== */
+.education h2 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.education h3 {
+    font-size: 2rem;
+    margin: 0px 0px 0px 30px;
+}
+
+.education p {
+    font-size: 1.3rem;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.timeline-content {
+    background: #695D47;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    transition: all 1s ease 0.1s;
+    width: 820px;
+    height: 350px;
+}
+
+.education img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.timeline-content::after {
+    content: "";
+    position: absolute;
+    bottom: -100%; 
+    left: 0;
+    right: 0;
+    height: 80%;
+    background: linear-gradient(transparent, black);
+    transition: bottom 1s ease;
+    z-index: 1;
+    border-radius: 15px;
+}
+
+.education-caption {
+    position: absolute;
+    bottom: -100%; 
+    left: 0;
+    right: 0;
+    padding: 20px;
+    color: white;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.7s ease 0.1s;
+}
+
+.timeline-content:hover::after {
+    bottom: 0;
+}
+
+.timeline-content:hover .education-caption {
+    bottom: 0;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.education-caption-h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.education-caption-p {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: white;
+}
+
+.timeline {
+    width: 70%;
+    margin: auto;
+    position: relative;
+    padding-left: 25px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #5B3820;
+}
+
+.timeline-item {
+    margin: 40px 0;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 170px;
+    left: -53.5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #5B3820;
+}
+
+/* ===================== EXPERIENCE SECTION ===================== */
+.experience {
+    padding-top: 0rem;
+    text-align: center;
+}
+
+.experience h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.carousel-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.carousel-wrapper {
+    flex: 1;
+    min-width: 400px;
+    max-width: 600px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 293px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px black;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.75s ease-in-out;
+    height: 100% !important;
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-item {
+    position: relative;
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: -100%; 
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, black);
+    color: white;
+    padding: 100px 20px 20px;
+    transition: bottom 0.8s ease;
+    border-radius: 0 0 10px 10px;
+    z-index: 15;
+}
+
+.carousel-item:hover .carousel-caption {
+    bottom: 0;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #5B3820;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    z-index: 20;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: #3b2415;
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+.services,
+.skills,
+.education,
+.experience {
+    min-height: 100vh;
+    padding-top: 100px; 
+    padding-bottom: 60px;
+    background-color: #A49D97;
+}
+
+.home {
+    padding-top: 200px;
 }
